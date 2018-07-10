@@ -19,5 +19,4 @@ public class Student extends Person{
         super(name,age);
         setKlass(klass);
     }
-
 }
