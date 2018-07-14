@@ -27,7 +27,7 @@ public class Klass{
     public void appendMember(Student student) {
         student.setKlass(this);
         memberList.add(student);
-        notifyTeacherSomeoneJoinClass(student);
+        notifySomeoneJoinClass(student);
     }
 
     public String getDisplayName(){
@@ -37,7 +37,7 @@ public class Klass{
     public void assignLeader(Student student){
         if(student.getKlass().getNumber() == this.getNumber()){
             leader = student;
-            notifyTeacherSomeoneAssignLeader(student);
+            notifySomeoneAssignLeader(student);
         }
         else System.out.print("It is not one of us.\n");
     }
@@ -50,13 +50,13 @@ public class Klass{
         assignLeaderListenerList.add(assignLeaderListener);
     }
 
-    public void notifyTeacherSomeoneAssignLeader(Student student) {
+    public void notifySomeoneAssignLeader(Student student) {
         for(int i = 0;i<assignLeaderListenerList.size();i++){
             assignLeaderListenerList.get(i).sayAssignLeader(student,this.number);
         }
     }
 
-    public void notifyTeacherSomeoneJoinClass(Student student) {
+    public void notifySomeoneJoinClass(Student student) {
         for(int i = 0;i<joinClassListenerList.size();i++){
             joinClassListenerList.get(i).saySomeoneJoinClass(student,this.number);
         }
